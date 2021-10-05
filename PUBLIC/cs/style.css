@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 :root {
-	--dark-color-a: #0826ee;
-	--dark-color-b: #82c7e7;
+	--dark-color-a: #275bec;
+	--dark-color-b: #adcef5;
 	--light-color: #e6e9ff;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
@@ -143,7 +143,7 @@ a {
 }
 
 .join-main {
-	padding: 30px 40px;
+	padding: 70px 40px;
 	background: var(--dark-color-b);
 }
 
