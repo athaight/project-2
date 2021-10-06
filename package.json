@@ -9,11 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "ejs": "^2.6.1",
-    "express": "^4.17.1",
-    "socket.io": "^2.2.0"
-=======
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
@@ -27,7 +22,6 @@
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5",
     "socket.io": "^4.2.0"
->>>>>>> 8068fd9d2bb7732b31db5aa6cbb9b946eee51326
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
