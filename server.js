@@ -1,16 +1,71 @@
-<<<<<<< HEAD
-const socket = require('socket.io');
-const express = require('express')
-=======
-const io = require('socket.io')(3001, {
-    cors:{
-        orgin: ['http://localhost:3001'],
+const express = require("express");
+const app = express();
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
+const session = require("express-session");
+const routes = require("./routes");
+const exphbs = require("express-handlebars");
 
-    },
-})
+const sequelize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-io.on('connection', socket => {
-    console.log('new user')
-    socket.emit('chat-message', 'Hello World')
-})
->>>>>>> 2e58ddb02b246212bf31f6fc84292a306c018594
+const PORT = process.env.PORT || 3001;
+const hbs = exphbs.create({});
+
+const sess = {
+  secret: "Super secret secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.set("views", "./views");
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+app.use(session(sess));
+
+const rooms = {};
+
+server.listen(3000);
+
+io.on("connection", (socket) => {
+  socket.on("new-user", (room, name) => {
+    socket.join(room);
+    rooms[room].users[socket.id] = name;
+    socket.to(room).broadcast.emit("user-connected", name);
+  });
+  socket.on("send-chat-message", (room, message) => {
+    socket.to(room).broadcast.emit("chat-message", {
+      message: message,
+      name: rooms[room].users[socket.id],
+    });
+  });
+  socket.on("disconnect", () => {
+    getUserRooms(socket).forEach((room) => {
+      socket
+        .to(room)
+        .broadcast.emit("user-disconnected", rooms[room].users[socket.id]);
+      delete rooms[room].users[socket.id];
+    });
+  });
+});
+
+function getUserRooms(socket) {
+  return Object.entries(rooms).reduce((names, [name, room]) => {
+    if (room.users[socket.id] != null) names.push(name);
+    return names;
+  }, []);
+}
+
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log("Now listening"));
+});
