@@ -9,9 +9,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "socket.io": "^2.2.0"
+=======
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "heroku": "^7.59.0",
+    "moment": "^2.29.1",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5",
+    "socket.io": "^4.2.0"
+>>>>>>> 8068fd9d2bb7732b31db5aa6cbb9b946eee51326
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
