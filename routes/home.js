@@ -32,10 +32,5 @@ router.get("/login", (req, res) => {
 
 module.exports = router;
 
-app.get("/", (req, res) => {
-  res.render("index", { rooms: rooms });
-<<<<<<< HEAD
-});
-=======
-});
->>>>>>> 8068fd9d2bb7732b31db5aa6cbb9b946eee51326
+
+

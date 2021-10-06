@@ -4,13 +4,13 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const session = require("express-session");
 const routes = require("./routes");
-const exphbs = require("express-handlebars");
+
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const PORT = process.env.PORT || 3001;
-const hbs = exphbs.create({});
+const PORT = process.env.PORT || 3000;
+
 
 const sess = {
   secret: "Super secret secret",
@@ -27,13 +27,12 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+
 app.use(session(sess));
 
 const rooms = {};
 
-server.listen(3000);
+// server.listen(3000);
 
 io.on("connection", (socket) => {
   socket.on("new-user", (room, name) => {
@@ -67,5 +66,5 @@ function getUserRooms(socket) {
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  server.listen(PORT, () => console.log("Now listening"));
 });
