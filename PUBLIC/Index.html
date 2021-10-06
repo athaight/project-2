@@ -14,24 +14,42 @@
   <div class="imgcontainer">
     <img src="https://pbs.twimg.com/profile_images/1049057742059712515/gZLecP-I.jpg" alt="Avatar" class="avatar">
   </div>
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+  <main class="join-main">
+    <form action="chat.html">
+      <div class="form-control">
+                    <!-- <label for="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Enter email..."
+          required
+        /> -->
+                
+        <label for="username"><strong>Username</strong></label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter username..."
+          required
+        />
+        <label for="password"><strong>Password</strong></label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="Enter password..."
+          required
+        />
+      </div>
         
-    <button type="submit">Login</button>
+    <button type="submit"><strong>Login</strong></button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
-  <!-- <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div> -->
 </form>
 </body>
 </html>
