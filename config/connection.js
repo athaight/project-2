@@ -8,7 +8,10 @@ const sequelize = new Sequelize(
   {
     host: "localhost",
     dialect: "mysql",
+<<<<<<< HEAD
     
+=======
+>>>>>>> 0b809fded12c832140bc64e9559f6c7a20f820db
   }
 );
 

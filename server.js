@@ -10,7 +10,11 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const PORT = process.env.PORT || 3000;
+<<<<<<< HEAD
 
+=======
+const hbs = exphbs.create({});
+>>>>>>> 0b809fded12c832140bc64e9559f6c7a20f820db
 
 const sess = {
   secret: "Super secret secret",
@@ -27,7 +31,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b809fded12c832140bc64e9559f6c7a20f820db
 app.use(session(sess));
 
 const rooms = {};
