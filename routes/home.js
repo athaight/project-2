@@ -31,7 +31,3 @@ router.get("/login", (req, res) => {
 });
 
 module.exports = router;
-
-app.get("/", (req, res) => {
-  res.render("index", { rooms: rooms });
-});
