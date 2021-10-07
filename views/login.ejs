@@ -15,7 +15,7 @@
     <img src="https://pbs.twimg.com/profile_images/1049057742059712515/gZLecP-I.jpg" alt="Avatar" class="avatar">
   </div>
   <main class="join-main">
-    <form action="./room.ejs" method>
+    <form action="./:room" method>
       <div class="form-control">
                     <!-- <label for="email">Email</label>
         <input
@@ -30,7 +30,7 @@
         <input
           type="text"
           name="user-name"
-          id=" userName"
+          id=" username"
           placeholder="Enter email..."
         />
         <label for="password"><strong>Password</strong></label>
@@ -41,21 +41,25 @@
           placeholder="Enter password..."
         />
       </div>
-        
-    <button type="submit"><strong>Login</strong></button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-</form>
+      <button type="submit"><strong>Login</strong></button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  </form>
+  
+
   
   <p><strong>Not registered?</strong></p>
   <form>
     <input 
-    id="username"
+    id="signUpEmail"
+    placeholder="gimme your email">
+    <input 
+    id="signUpName"
     placeholder="Unique username...">
     <input 
-    id="password"
+    id="signUpPassword"
     placeholder="Choose a password...">
     <button type="submit" onclick="getInfo()">Sign up!</button>
   </form>
