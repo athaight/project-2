@@ -9,10 +9,7 @@ router.get("/", async (req, res) => {
       order: [["name", "ASC"]],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
-
     res.render("index", {
-      users,
       logged_in: req.session.logged_in,
       rooms: rooms,
     });

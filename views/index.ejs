@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat4us</title>
   <link rel="stylesheet" href="/public/css/style.css">
-  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-  <script defer src="/public/script.js"></script>
+  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <form action="./public/script.js" method="post">
+  <form action="/room" method="post">
   <div id="room-container">
     <% Object.keys(rooms).forEach(room => { %>
       <div><%= room %></div>
