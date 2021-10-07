@@ -58,6 +58,7 @@ io.on('connection', socket => {
   socket.on('new-user', (room, name) => {
     socket.join(room)
     rooms[room].users[socket.id] = name
+    console.log(name)
     socket.to(room).broadcast.emit('user-connected', name)
   })
   socket.on('send-chat-message', (room, message) => {
@@ -78,7 +79,7 @@ function getUserRooms(socket) {
   }, [])
 }
 
-app.use(session(sess));
+// app.use(session(sess));
 
 // app.use(routes);
 
