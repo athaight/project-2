@@ -1,7 +1,14 @@
 const router = require("express").Router();
+const rooms = { }
+
+router.get('/', (req, res) => {
+  res.render('index', { rooms: rooms })
+  console.log(rooms)
+})
 
 router.post("/", (req, res) => {
   if (rooms[req.body.room] != null) {
+    console.log(rooms)
     return res.redirect("/");
   }
   rooms[req.body.room] = { users: {} };
@@ -13,7 +20,8 @@ router.post("/", (req, res) => {
 router.get("/:room", (req, res) => {
   if (rooms[req.params.room] == null) {
     return res.redirect("/");
-  }
+  }    console.log(rooms)
+
   res.render("room", { roomName: req.params.room });
 });
 

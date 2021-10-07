@@ -11,11 +11,11 @@
   <h2>Login Form</h2>
 
 
-  <div class="imgcontainer" >
+  <div class="imgcontainer">
     <img src="https://pbs.twimg.com/profile_images/1049057742059712515/gZLecP-I.jpg" alt="Avatar" class="avatar">
   </div>
   <main class="join-main">
-    <form action="/views/room.html">
+    <form action="./api/room" method>
       <div class="form-control">
                     <!-- <label for="email">Email</label>
         <input
@@ -26,30 +26,42 @@
           required
         /> -->
                 
-        <label for="email"><strong>Email</strong></label>
+        <label for="username"><strong>User name</strong></label>
         <input
           type="text"
-          name="email"
-          id="email"
+          name="user-name"
+          id=" username"
           placeholder="Enter email..."
-          required
         />
         <label for="password"><strong>Password</strong></label>
         <input
           type="text"
           name="password"
-          id="password"
+          id="userPassword"
           placeholder="Enter password..."
-          required
         />
       </div>
-        
-    <button type="submit"><strong>Login</strong></button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+      <button type="submit"><strong>Login</strong></button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  </form>
+  
 
-</form>
+  
+  <p><strong>Not registered?</strong></p>
+  <form>
+    <input 
+    id="signUpEmail"
+    placeholder="gimme your email">
+    <input 
+    id="signUpName"
+    placeholder="Unique username...">
+    <input 
+    id="signUpPassword"
+    placeholder="Choose a password...">
+    <button type="submit" onclick="getInfo()">Sign up!</button>
+  </form>
 </body>
 </html>
