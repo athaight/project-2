@@ -1,4 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/* from room.ejs*/
+body {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+  }
+  #message-container {
+	width: 80%;
+	max-width: 1200px;
+  }
+  #message-container div {
+	background-color: #CCC;
+	padding: 5px;
+  }
+  #message-container div:nth-child(2n) {
+	background-color: #FFF;
+  }
+  #send-container {
+	position: fixed;
+	padding-bottom: 30px;
+	bottom: 0;
+	background-color: white;
+	max-width: 1200px;
+	width: 80%;
+	display: flex;
+  }
+  #message-input {
+	flex-grow: 1;
+  }
+
+  
+/* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 :root {
 	--dark-color-a: #275bec;
@@ -39,7 +71,7 @@ a {
 }
 
 /* Chat Page */
-
+/* 
 .chat-container {
 	max-width: 1100px;
 	background: #fff;
@@ -125,10 +157,10 @@ a {
 	padding: 5px;
 	height: 40px;
 	flex: 1;
-}
+} */
 
 /* Join Page */
-.join-container {
+/* .join-container {
 	max-width: 500px;
 	margin: 80px auto;
 	color: #fff;
@@ -177,40 +209,10 @@ a {
 .join-main .btn {
 	margin-top: 20px;
 	width: 100%;
-}
+} */ 
 
-/* from room.ejs*/
-body {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content: center;
-  }
-  #message-container {
-	width: 80%;
-	max-width: 1200px;
-  }
-  #message-container div {
-	background-color: #CCC;
-	padding: 5px;
-  }
-  #message-container div:nth-child(2n) {
-	background-color: #FFF;
-  }
-  #send-container {
-	position: fixed;
-	padding-bottom: 30px;
-	bottom: 0;
-	background-color: white;
-	max-width: 1200px;
-	width: 80%;
-	display: flex;
-  }
-  #message-input {
-	flex-grow: 1;
-  }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
 	.chat-main {
 		display: block;
 	}
@@ -218,4 +220,4 @@ body {
 	.chat-sidebar {
 		display: none;
 	}
-}
+} */
