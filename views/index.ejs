@@ -5,27 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat4us</title>
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
   <script defer src="script.js"></script>
 </head>
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Chat4US</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Rooms</a></li>
+        <li><a href="collapsible.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <body>
-  <form action="/room" method="post">
-  <div id="room-container">
-    <% Object.keys(rooms).forEach(room => { %>
-      <div><%= room %></div>
-      <a href="/<%= room %>">Join</a>
-    <% }) %>
+  <div id='bigOleContainer'>
+    <form action="/room" method="post">
+    <div id="room-container">
+      <% Object.keys(rooms).forEach(room => { %>
+        <div class='room_join'><%= room %></div>
+       <a class="waves-effect waves-light btn" href="/<%= room %>">Join</a>
+        <% }) %>
+      <input name="room" type="text" required>
+      <button class="waves-effect waves-light btn" type="submit">New Room</button>
+      
+      <div id="message-container"></div>
+      <form id="send-container">
+        <input type="text" id="message-input">
+        <button class="waves-effect waves-light btn" type="submit" id="send-button">Send</button>
+      </form>
+      </form>
   </div>
-    <input name="room" type="text" required>
-    <button type="submit">New Room</button>
-    
-    <div id="message-container"></div>
-    <form id="send-container">
-      <input type="text" id="message-input">
-      <button type="submit" id="send-button">Send</button>
-    </form>
-    
-  </form>
 </body>
 </html>

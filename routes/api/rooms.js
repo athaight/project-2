@@ -11,6 +11,7 @@ router.post("/", (req, res) => {
     console.log('rooms')
     return res.redirect("/");
   }
+  
   rooms[req.body.room] = { users: {} };
   res.redirect(req.body.room);
   // Send message that new room was created

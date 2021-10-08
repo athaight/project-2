@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>Lets Chat!</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
           type="text"
           name="user-name"
           id=" username"
-          placeholder="Enter email..."
+          placeholder="Enter user..."
         />
         <label for="password"><strong>Password</strong></label>
         <input
@@ -41,7 +42,7 @@
           placeholder="Enter password..."
         />
       </div>
-      <button type="submit"><strong>Login</strong></button>
+      <button class="waves-effect waves-light btn" type="submit"><strong>Login</strong></button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -52,16 +53,16 @@
   
   <p><strong>Not registered?</strong></p>
   <form>
-    <input 
+    <!-- <input 
     id="signUpEmail"
-    placeholder="gimme your email">
+    placeholder="gimme your email"> -->
     <input 
     id="signUpName"
     placeholder="Unique username...">
     <input 
     id="signUpPassword"
     placeholder="Choose a password...">
-    <button type="submit" onclick="getInfo()">Sign up!</button>
+    <button class="waves-effect waves-light btn" type="submit" onclick="getInfo()">Sign up!</button>
   </form>
 </body>
 </html>
