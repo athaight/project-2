@@ -5,16 +5,16 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server); // gives us a server connection to socket.io
 const session = require("express-session");
 const routes = require("./routes");
-
+const withAuth = require("./utils/auth")
+const { clog } = require("./utils/clog");
 
 const sequelize = require("./config/connection");
-const { clear } = require("console");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: "Super secret secret",
+  secret: "Bruh",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -23,16 +23,22 @@ const sess = {
   }),
 };
 
+app.use( clog );
+
 app.set("views", "./views"); // setup express server views
 app.set("view engine", "ejs"); // use ejs to parse our views
 app.use(express.static(__dirname + '/public')); // javascript goes for client side
 // app.use(express.static("views"));
 app.use(express.urlencoded({ extended: true })); // use url paramaters instead of body for form
 
+app.use(session(sess));
+app.use(routes);
+
+
 
 const rooms = { }
 
-app.get('/', (req, res) => {
+app.get('/', withAuth, (req, res) => {
   res.render('index', { rooms: rooms })
 })
 
@@ -53,7 +59,11 @@ app.get('/:room', (req, res) => {
   res.render('room', { roomName: req.params.room })
 })
 
-server.listen(3001)
+
+// server.listen(3001)
+sequelize.sync({ force: false }).then(() => {
+  server.listen(PORT, () => console.log("Now listening"));
+});
 
 io.on('connection', socket => {
   socket.on('new-user', (room, name) => {
@@ -80,11 +90,3 @@ function getUserRooms(socket) {
     return names
   }, [])
 }
-
-app.use(session(sess));
-
-app.use(routes);
-
-sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log("Now listening"));
-});
