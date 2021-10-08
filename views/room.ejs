@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="../public/css/styles.css" />
+  <title>Chat App</title>
+  <script> const roomName = "<%= roomName %>" 
+  </script>
+
+</head>
+<body>
+  <div class="chat-main">
+  <div id="message-container">
+  <form id="send-container">
+    <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send</button>
+  </form>
+</div>
+</body>
+</html>
