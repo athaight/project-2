@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server); // gives us a server connection to socket.io
-
 const session = require("express-session");
 const routes = require("./routes");
 
@@ -26,7 +25,7 @@ const sess = {
 
 app.set("views", "./views"); // setup express server views
 app.set("view engine", "ejs"); // use ejs to parse our views
-app.use(express.static("public")); // javascript goes for client side
+app.use(express.static(__dirname + '/public')); // javascript goes for client side
 // app.use(express.static("views"));
 app.use(express.urlencoded({ extended: true })); // use url paramaters instead of body for form
 
