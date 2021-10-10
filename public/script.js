@@ -6,7 +6,7 @@ const messageInput = document.getElementById('message-input')
 const joined = document.querySelector('joined')
 
 if (messageForm != null) {
-  const name = prompt('What do you want as your chat name?')
+  const name = prompt('Choose your chat name for this session:')
   console.log(name)
   appendMessage('You joined')
   socket.emit('new-user', roomName, name)

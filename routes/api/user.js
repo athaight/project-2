@@ -1,60 +1,72 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
+const bcrypt = require('bcrypt')
 const router = require("express").Router();
-const { User } = require("../../models/user");
+const passport = require('passport')
+const flash = require('express-flash')
+const methodOverride = require('method-override')
+// const { User } = require("../../models/user");
 
-router.post("/", async (req, res) => {
+
+router.use(flash())
+router.use(passport.initialize())
+router.use(passport.session())
+router.use(methodOverride('_method'))
+
+router.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.ejs', { name: req.user.name })
+})
+
+router.get('/login', checkNotAuthenticated, (req, res) => {
+  res.render('login.ejs')
+})
+
+router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}))
+
+router.get('/register', checkNotAuthenticated, (req, res) => {
+  res.render('register.ejs')
+})
+
+router.post('/register', checkNotAuthenticated, async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    })
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
+    res.redirect('/login')
+  } catch {
+    res.redirect('/register')
   }
-});
+})
 
-router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { name: req.body.name } });
+router.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/login')
+})
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password, please try again" });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
   }
-});
 
-router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
   }
-});
+  next()
+}
 
 module.exports = router;

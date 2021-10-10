@@ -24,47 +24,50 @@
       Else use the Register button to create a login.<br>
       You will be able to choose a chat name after login.
     </blockquote>
-    <form action="/login" method>
+
       <div class="form-control">
-        <form action="/login" method="POST">
+        <form id="login-form" action="/login" method="POST">
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email-login" name="email" required>
           </div>
+          
           <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password-login" name="password" required>
           </div>
-          <button id="loginBtn" class="waves-effect waves-light btn" type="submit">Login</button>
+          <button  class="waves-effect waves-light btn" type="submit">Login</button>
         </form>
+        
         <form action="/register" method="get">
         <button class="regBtn waves-effect waves-light btn" type="submit">Register</button>
         </form>
       </div>
-    </form>
+
   </main>
-</body>
-<footer class="page-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">About:</h5>
-        <p class="grey-text text-lighten-4">Project two for the UofA/Trilogy Full Stack coding bootcamp.</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Devs</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">byoung</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">giselle556</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">athaight</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
+  <footer class="page-footer">
     <div class="container">
-      <p class="brand-logo center">2Chit2Chat</p>
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About:</h5>
+          <p class="grey-text text-lighten-4">Project two for the UofA/Trilogy Full Stack coding bootcamp.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Devs</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">byoung</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">giselle556</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">athaight</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
-</html>
+    <div class="footer-copyright">
+      <div class="container">
+        <p class="brand-logo center">2Chit2Chat</p>
+      </div>
+    </div>
+  </footer>
+<script src='/js/login.js'></script>
+</body>
+  </html>
