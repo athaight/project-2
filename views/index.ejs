@@ -13,11 +13,9 @@
 <header>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Chat4US</a>
+      <a href="#" class="brand-logo center">Chat4US</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Home</a></li>
-        <li><a href="badges.html">Rooms</a></li>
-        <li><a href="collapsible.html">About</a></li>
       </ul>
     </div>
   </nav>
@@ -31,14 +29,15 @@
         <div class='room_join'><%= room %></div>
        <a class="waves-effect waves-light btn" href="/<%= room %>">Join</a>
         <% }) %>
-      <input name="room" type="text" required>
+      <input  name="room" type="text" required>
       <button class="waves-effect waves-light btn" type="submit">New Room</button>
       
-      <div id="message-container"></div>
+      <div id="message-container">
       <form id="send-container">
         <input type="text" id="message-input">
         <button class="waves-effect waves-light btn" type="submit" id="send-button">Send</button>
       </form>
+    </div>
       </form>
   </div>
 </body>

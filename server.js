@@ -5,7 +5,7 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server); // gives us a server connection to socket.io
 const session = require("express-session");
 const routes = require("./routes");
-const withAuth = require("./utils/auth")
+// const withAuth = require("./utils/auth")
 const { clog } = require("./utils/clog");
 
 const sequelize = require("./config/connection");
@@ -27,8 +27,7 @@ app.use( clog );
 
 app.set("views", "./views"); // setup express server views
 app.set("view engine", "ejs"); // use ejs to parse our views
-app.use(express.static(__dirname + '/public')); // javascript goes for client side
-// app.use(express.static("views"));
+app.use(express.static(__dirname + '/public')); // javascript for client side
 app.use(express.urlencoded({ extended: true })); // use url paramaters instead of body for form
 
 app.use(session(sess));
@@ -38,7 +37,7 @@ app.use(routes);
 
 const rooms = { }
 
-app.get('/', withAuth, (req, res) => {
+app.get('/',  (req, res) => {
   res.render('index', { rooms: rooms })
 })
 
@@ -59,7 +58,6 @@ app.get('/:room', (req, res) => {
   res.render('room', { roomName: req.params.room })
 })
 
-
 // server.listen(3001)
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () => console.log("Now listening"));
@@ -73,8 +71,8 @@ io.on('connection', socket => {
     console.log(room)
     socket.broadcast.to(room).emit('user-connected', name)
   })
-  socket.on('send-chat-message', (room, message) => {
-    socket.broadcast.to(room).emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+  socket.on('send-chat-message', (room, message, time) => {
+    socket.broadcast.to(room).emit('chat-message', { message: message, name: rooms[room].users[socket.id]})
   })
   socket.on('disconnect', () => {
     getUserRooms(socket).forEach(room => {

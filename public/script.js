@@ -3,9 +3,10 @@ const messageContainer = document.getElementById('message-container')
 const roomContainer = document.getElementById('room-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
+const joined = document.querySelector('joined')
 
 if (messageForm != null) {
-  const name = prompt('What is your name?')
+  const name = prompt('What do you want as your chat name?')
   console.log(name)
   appendMessage('You joined')
   socket.emit('new-user', roomName, name)

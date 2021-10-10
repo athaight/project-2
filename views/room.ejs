@@ -6,21 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
   <script defer src="script.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <title>Chat App</title>
+  <title>2Chit2Chat</title>
   <script> const roomName = "<%= roomName %>" 
   </script>
 
 </head>
-
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">2Chit2Chat</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        </ul>
+          <form action="/logout?_method=DELETE" method="POST">
+          <button id="logout" class="right waves-effect waves-light btn" type="submit">Log Out</button>
+        </form>
+    </div>
+  </nav>
+</header>
 <body>
-  <div class="chat-main">
-  <div id="message-container">
-  <form id="send-container">
-    <input type="text" id="message-input">
-    <button type="submit" id="send-button">Send</button>
-  </form>
+  <div class="container chat-main">
+    <div id="joined"></div>
+    <div class="input-field col s12">
+      <form id="send-container">
+        <input type="text" id="message-input" >
+        <button class="waves-effect waves-light btn" type="submit" id="send-button">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="message_box">
+    <div id="message-container"></div>
+  </div>
+  </div>
 </div>
 </body>
 </html>
