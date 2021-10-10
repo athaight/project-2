@@ -1,4 +1,26 @@
-<h1>Register</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat4us Register</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Chat4US</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="container">
 <form id="signup-form" action="/register" method="POST">
   <div>
     <label for="name">Name</label>
@@ -12,7 +34,8 @@
     <label for="password">Password</label>
     <input type="password" id="password-signup" name="password" required>
   </div>
-  <button type="submit">Register</button>
+  <button class="regBtn waves-effect waves-light btn" type="submit">Register</button>
 </form>
-<a href="/login">Login</a>
+<form action="/login" method="get"><button class="waves-effect waves-light btn">Login</button></form>
+</div>
 <script src="/js/register.js"></script>

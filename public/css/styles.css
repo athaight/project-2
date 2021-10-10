@@ -13,6 +13,10 @@
   padding-left: 100px;
 }
 
+.regBtn {
+  margin: 20px 0px;
+}
+
 #logout{
   margin-top: 12px;
   padding-right: 80px;
@@ -22,10 +26,18 @@
   margin-bottom: 20px;
 }
 
+.page-footer {
+  margin-top: 80px;
+}
+
 .room_join{
   font-weight: 100;
 }
-  
+
+#signup-form {
+  margin-top: 40px;
+}
+
 #room-container{ 
   display: flex;
   flex-direction: column;}

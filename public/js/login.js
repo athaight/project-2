@@ -12,12 +12,14 @@ console.log(email, password)
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
+    if (response.ok) {
+      document.location.replace("/");
   } else {
     alert(response.statusText);
   }
+}
 };
 
 document
   .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
-

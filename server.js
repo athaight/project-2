@@ -33,8 +33,6 @@ app.use(express.urlencoded({ extended: true })); // use url paramaters instead o
 app.use(session(sess));
 app.use(routes);
 
-
-
 const rooms = { }
 
 app.get('/',  (req, res) => {
