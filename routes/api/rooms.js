@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const rooms = { }
-// const withAuth = require("../../utils/auth");
+
 
 router.get('/', (req, res) => {
   res.render('index', { rooms: rooms })

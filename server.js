@@ -5,9 +5,7 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server); // gives us a server connection to socket.io
 const session = require("express-session");
 const routes = require("./routes");
-// const withAuth = require("./utils/auth")
 const { clog } = require("./utils/clog");
-
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 

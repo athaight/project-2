@@ -26,7 +26,7 @@
     <form action="/room" method="post">
     <div id="room-container">
       <% Object.keys(rooms).forEach(room => { %>
-        <div class='room_join'><%= room %></div>
+        <div><%= room %></div>
        <a class="waves-effect waves-light btn" href="/<%= room %>">Join</a>
         <% }) %>
       <input  name="room" type="text" required>

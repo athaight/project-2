@@ -1,3 +1,4 @@
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -7,7 +8,7 @@ const router = require("express").Router();
 const passport = require('passport')
 const flash = require('express-flash')
 const methodOverride = require('method-override')
-// const { User } = require("../../models/user");
+const { user } = require("../../models/user");
 
 
 router.use(flash())
@@ -36,11 +37,12 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
 router.post('/register', checkNotAuthenticated, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    users.push({
+    user.push({
       id: Date.now().toString(),
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword
+      // strategy: "local"
     })
 
     res.redirect('/login')
