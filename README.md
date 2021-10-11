@@ -15,7 +15,6 @@
    |________________________________________________________|
   ```
   
-## Description
 Basic chat application with register, login/logout, and creation of multiple chat rooms feature. 
 
 ## Demo
@@ -25,9 +24,19 @@ Basic chat application with register, login/logout, and creation of multiple cha
 JavaScript, CSS, EJS, Node.js, Express, Passport, Socket.io, MateralizeCss, MySql, Bcrypt, Sequelize
 
 ## Future/Scalability
-We hope to add the ability to choose a randomly generated username (currently allows you to add you own, but does not check if it is already being used) and to assign a unique color to the chat message background of each person in the chat. Possible encryption of chat messages in future deployment. 
+We would like to refine the chat feature to be more robust by incorporating sound prompts when someone enters/leaves the chat room as well as when a chat message is received, the time and date of the messages, and a better aesthetic UI for the scroll feature of the chat messages. 
 
-InitDevs:
+We hope to add the ability to choose a randomly generated username in addition to creating your own, and to have that name be exclusive to the users account (currently allows users to add their own, but does not check if it is already being used)
+
+Possible assignment of a unique color hue to the background of the chat message for each user in the chat. 
+
+Possible encryption of chat messages in future deployment. 
+
+## InitDevs:
 @byoung @Giselle556 @athaight
 
+## Contributions (and thanks!)
+<a href="https://github.com/tuckerbeauchamp" target="_blank">@tuckerbeauchamp</a> and <a href="https://github.com/Williamlam343" target="_blank">@Williamlam343</a>
+
 ## Deployment
+https://appchat4us.herokuapp.com/
