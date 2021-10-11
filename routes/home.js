@@ -1,14 +1,18 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 
-const bcrypt = require('bcrypt')
 const router = require("express").Router();
-const passport = require('passport')
-const flash = require('express-flash')
-const methodOverride = require('method-override')
+const passport = require("passport");
+const flash = require("express-flash");
+const methodOverride = require("method-override");
 // const { User } = require("../../models/user");
+const rooms = {};
 
+router.use(flash());
+router.use(passport.initialize());
+router.use(passport.session());
+router.use(methodOverride("_method"));
 
 router.use(flash())
 router.use(passport.initialize())
@@ -56,17 +60,10 @@ router.delete('/logout', (req, res) => {
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    return next()
+    return next();
   }
 
-  res.redirect('/login')
-}
-
-function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return res.redirect('/')
-  }
-  next()
+  res.redirect("/login");
 }
 
 module.exports = router;
