@@ -8,15 +8,16 @@ const flash = require("express-flash");
 const methodOverride = require("method-override");
 // const { User } = require("../../models/user");
 const rooms = {};
+const user = [];
 
 router.use(flash());
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(methodOverride("_method"));
 
+// const newUser = User.create(req.body);
+// console.log(newUser);
 router.get("/", (req, res) => {
-  const newUser = User.create(req.body);
-  console.log(newUser);
   res.render("index.ejs", { rooms: rooms });
 });
 
