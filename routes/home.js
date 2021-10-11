@@ -7,14 +7,15 @@ const passport = require("passport");
 const flash = require("express-flash");
 const methodOverride = require("method-override");
 // const { User } = require("../../models/user");
+const rooms = {};
 
 router.use(flash());
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(methodOverride("_method"));
 
-router.get("/", checkAuthenticated, (req, res) => {
-  res.render("index.ejs", { name: req.user.name });
+router.get("/", (req, res) => {
+  res.render("index.ejs", { rooms: rooms });
 });
 
 function checkAuthenticated(req, res, next) {
