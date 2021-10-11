@@ -8,7 +8,7 @@ const router = require("express").Router();
 const passport = require('passport')
 const flash = require('express-flash')
 const methodOverride = require('method-override')
-const { user } = require("../../models/user");
+const { User } = require("../../models");
 
 
 router.use(flash())
@@ -27,27 +27,28 @@ router.get('/login', checkNotAuthenticated, (req, res) => {
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login',
-  failureFlash: true
+  failureFlash: true,
+  
 }))
 
 router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register.ejs')
 })
 
-router.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    user.push({
-      id: Date.now().toString(),
+router.post('/register', async (req, res) => {
+  try { console.log(req.body)
+    // const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    // console.log(hashedPassword)
+    let userData = await User.create({
       name: req.body.name,
       email: req.body.email,
-      password: hashedPassword
-      // strategy: "local"
+      password: req.body.password
     })
-
-    res.redirect('/login')
-  } catch {
-    res.redirect('/register')
+console.log(userData)
+    res.json('Success!')
+  } catch (error) {
+    res.json(error)
+    console.log(error)
   }
 })
 
