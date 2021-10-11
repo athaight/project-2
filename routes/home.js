@@ -15,6 +15,8 @@ router.use(passport.session());
 router.use(methodOverride("_method"));
 
 router.get("/", (req, res) => {
+  const newUser = User.create(req.body);
+  console.log(newUser);
   res.render("index.ejs", { rooms: rooms });
 });
 
