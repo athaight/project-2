@@ -1,51 +1,94 @@
-
 body {
-    padding: 0;
-    margin: 0;
-    /* display: flex; */
-    justify-content: center;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 .chat-main {
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.img-container img{
+  width: 150px;
+}
+
+.joined {
+  padding-left: 100px;
+}
+
+.regBtn {
+  margin: 20px 20px 100px 0px;
+}
+
+#logout{
+  margin-top: 12px;
+  padding-right: 80px;
+}
+
+#loginBtn {
+  margin-bottom: 20px;
+}
+
+#foot{
+  position: absolute;
+  bottom:0;
+}
+
+.page-footer {
+  position: relative;
+  margin-top: auto;
+  bottom:0;
 }
 
 .room_join{
   font-weight: 100;
 }
 
-  /* #message-container { */
-    /* width: 80%;
-    max-width: 1200px; */
-  /* } */
-  #room-container{ display: flex;
+#signup-form {
+  margin-top: 40px;
+}
+
+#room-container{ 
+  display: flex;
   flex-direction: column;}
   
-  #message-container div {
-    background-color: #CCC;
-    padding: 5px;
-  }
+.message_box{
+  height: auto;
+  max-height: 400px;
+  overflow-y: scroll;
+}
 
-  #message-container div:nth-child(2n) {
-    background-color: #FFF;
-  }
+#message-container div {
+  background-color: rgb(207, 174, 174);
+  padding: 5px;
+}
 
-  #send-container {
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 30px;
-    background-color: white;
-    max-width: 1200px;
-    width: 80%;
-    display: flex;
-  }
+#message-container div:nth-child(2n) {
+  background-color: #FFF;
+}
 
-  #message-input {
-    flex-grow: 1;
-  }
-  #bigOleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+#send-container {
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  margin: auto;
+}
+
+#message-input {
+  flex-grow: 1;
+}
+
+#bigOleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
