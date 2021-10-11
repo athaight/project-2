@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
-  <script defer src="script.js"></script>
+  <script defer src="https://cdn.socket.io/4.2.0/socket.io.min.js" integrity="sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj" crossorigin="anonymous"></script>
+  <script defer src="/js/script.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>2Chit2Chat</title>
@@ -20,7 +20,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/">Home</a></li>
         </ul>
-          <form action="/logout?_method=DELETE" method="POST">
+          <form action="/login/logout" method="get">
           <button id="logout" class="right waves-effect waves-light btn" type="submit">Log Out</button>
         </form>
     </div>

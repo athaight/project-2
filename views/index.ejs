@@ -7,16 +7,13 @@
   <title>2Chit2Chat</title>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
+  <script defer src="https://cdn.socket.io/4.2.0/socket.io.min.js" integrity="sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj" crossorigin="anonymous"></script>
   <script defer src="script.js"></script>
 </head>
 <header>
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">2Chit2Chat</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Home</a></li>
-      </ul>
     </div>
   </nav>
 </header>
@@ -27,7 +24,7 @@
     <div id="room-container">
       <% Object.keys(rooms).forEach(room => { %>
         <div><%= room %></div>
-       <a class="waves-effect waves-light btn" href="/<%= room %>">Join</a>
+       <a class="waves-effect waves-light btn" href="/api/rooms/<%= room %>">Join</a>
         <% }) %>
       <input  name="room" type="text" required>
       <button class="waves-effect waves-light btn" type="submit">New Room</button>
