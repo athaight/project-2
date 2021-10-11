@@ -16,13 +16,16 @@
   ```
   
 ## Description
+Basic chat application with register, login/logout, and creation of multiple chat rooms feature. 
 
 ## Demo
 # Screenshots
 
 ## Technologies
+JavaScript, CSS, EJS, Node.js, Express, Passport, Socket.io, MateralizeCss, MySql, Bcrypt, Sequelize
 
 ## Future/Scalability
+We hope to add the ability to choose a randomly generated username (currently allows you to add you own, but does not check if it is already being used) and to assign a unique color to the chat message background of each person in the chat. Possible encryption of chat messages in future deployment. 
 
 InitDevs:
 @byoung @Giselle556 @athaight
