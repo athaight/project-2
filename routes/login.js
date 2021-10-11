@@ -10,7 +10,8 @@ router.post("/", passport.authenticate("local"), function (req, res) {
   res.redirect("/");
 });
 
-router.delete("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
+  console.log("what");
   req.logOut();
   res.redirect("/login");
 });
