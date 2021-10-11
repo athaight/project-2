@@ -27,7 +27,7 @@
     <div id="room-container">
       <% Object.keys(rooms).forEach(room => { %>
         <div><%= room %></div>
-       <a class="waves-effect waves-light btn" href="/<%= room %>">Join</a>
+       <a class="waves-effect waves-light btn" href="/api/rooms/<%= room %>">Join</a>
         <% }) %>
       <input  name="room" type="text" required>
       <button class="waves-effect waves-light btn" type="submit">New Room</button>
