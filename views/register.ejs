@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2Chit2Chat Register</title>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
-  <script defer src="script.js"></script>
-</head>
-<header>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">2Chit2Chat</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Home</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-<div class="container">
-<form id="signup-form" action="/register" method="POST">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" id="name-signup" name="name" required>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>2Chit2Chat Register</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script defer src="http://localhost:3001/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">2Chit2Chat</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <form id="signup-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name-signup" name="name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email-signup" name="email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password-signup" name="password" required />
+      </div>
+      <button class="regBtn waves-effect waves-light btn" type="submit">
+        Register
+      </button>
+    </form>
+    <form action="/login" method="get">
+      <button class="waves-effect waves-light btn">Login</button>
+    </form>
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email-signup" name="email" required>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password-signup" name="password" required>
-  </div>
-  <button class="regBtn waves-effect waves-light btn" type="submit">Register</button>
-</form>
-<form action="/login" method="get"><button class="waves-effect waves-light btn">Login</button></form>
-</div>
-<script src="/js/register.js"></script>
+  <script src="/js/register.js"></script>
+</html>

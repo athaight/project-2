@@ -5,13 +5,7 @@ const app = express();
 const server = require("http").Server(app);
 // const socket = io("http://localhost:3001");
 const io = require("socket.io")(server); // gives us a server connection to socket.io
-
-// const messageContainer = document.getElementById("message-container");
-// const roomContainer = document.getElementById("room-container");
-// const messageForm = document.getElementById("send-container");
-// const messageInput = document.getElementById("message-input");
-
-const rooms = {};
+const rooms = require("../../utils/rooms");
 
 router.get("/", (req, res) => {
   res.render("index", { rooms: rooms });
